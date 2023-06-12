@@ -1,0 +1,67 @@
+name:                haskell-student-directory
+version:             0.1.0.0
+github:              "tristan-day/haskell-student-directory"
+license:             BSD3
+author:              "Tristan Day"
+maintainer:          "tristan.day.uk@gmail.com"
+copyright:           "2023 Tristan Day"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            A simple command line directory management tool
+# category:            None
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/tristan-day/haskell-student-directory#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- optparse-applicative
+- regex-posix
+- regex-base
+- directory
+- time
+- csv
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-student-directory-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-student-directory
+
+tests:
+  haskell-student-directory-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-student-directory
+    - process
+    - HUnit

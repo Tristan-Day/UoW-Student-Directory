@@ -1,0 +1,2 @@
+stack upgrade
+stack build

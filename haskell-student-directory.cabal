@@ -1,0 +1,98 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           haskell-student-directory
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/tristan-day/haskell-student-directory#readme>
+homepage:       https://github.com/tristan-day/haskell-student-directory#readme
+bug-reports:    https://github.com/tristan-day/haskell-student-directory/issues
+author:         Tristan Day
+maintainer:     tristan.day.uk@gmail.com
+copyright:      2023 Tristan Day
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/tristan-day/haskell-student-directory
+
+library
+  exposed-modules:
+      Command.Add
+      Command.Delete
+      Command.Enrol
+      Command.Export
+      Command.Initialise
+      Command.Search
+      Command.Show
+      Command.Unenroll
+      Command.Update
+      Library
+  other-modules:
+      Paths_haskell_student_directory
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , csv
+    , directory
+    , optparse-applicative
+    , regex-base
+    , regex-posix
+    , time
+  default-language: Haskell2010
+
+executable haskell-student-directory-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_student_directory
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , csv
+    , directory
+    , haskell-student-directory
+    , optparse-applicative
+    , regex-base
+    , regex-posix
+    , time
+  default-language: Haskell2010
+
+test-suite haskell-student-directory-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Integration.Enrollment
+      Integration.Export
+      Integration.Initialise
+      Integration.Regedit
+      Integration.Search
+      Integration.Show
+      Unit.Entity
+      Unit.Operation
+      Paths_haskell_student_directory
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , csv
+    , directory
+    , haskell-student-directory
+    , optparse-applicative
+    , process
+    , regex-base
+    , regex-posix
+    , time
+  default-language: Haskell2010
